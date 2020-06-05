@@ -1,0 +1,42 @@
+---
+title: "Homework # 10: ggplot"
+author: "HW10"
+output: 
+  html_document:
+    code_folding: "hide"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, fig.align='center')
+library(ggplot2)
+```
+
+`mpg` is the dataset that comes with ggplot.  You can use `View(mpg)` to get an overview of the dataset. 
+
+1. Using the `mpg` dataset generate a scatter plot of `cty` (city mileage) and `hwy` (highway mileage).
+```{r}
+ggplot(data = mpg, aes(x=cty,y=hwy)) + geom_point()
+```
+
+2. Add a colour scale to the scatterplot based on the `displ` variable (engine displacement in liters).
+```{r}
+ggplot(data = mpg, aes(x=cty,y=hwy)) + geom_point(aes(color=hwy))
+
+```
+
+3. Using the `mpg` dataset recreate the plot as shown below.
+
+
+4. Split the `cty` vs hwy plot into a grid of plots separated by `drv`. 
+```{r}
+ggplot(data = mpg, aes(x=cty,y=hwy)) + geom_point() + facet_grid(rows = vars(drv))
+```
+
+
+5. Generate a boxplot of `cty` comparing `drv` (f=front wheel, r=rear wheel, 4=4 wheel).
+
+
+6. Generate density plots of `hwy` coloured by `drv`.  
+
+
+7. Generate a boxplot of `cty` comparing type of transmission (automatic v.s. manual)
